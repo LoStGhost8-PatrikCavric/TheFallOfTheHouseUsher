@@ -7,13 +7,13 @@ public class DialogueManager : MonoBehaviour
 {
     public Animator animator;
 
-    public Queue<string> text;
+    private Queue<string> sentences;
     public Text nameText;
     public Text dialogueText;
     // Start is called before the first frame update
     void Start()
     {
-        text = new Queue<string>();
+        sentences = new Queue<string>();
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -22,11 +22,11 @@ public class DialogueManager : MonoBehaviour
 
         nameText.text = dialogue.name;
 
-        text.Clear();
+        sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
         {
-            text.Enqueue(sentence);
+            sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
 
@@ -34,7 +34,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if (text.Count == 0)
+        if (sentences.Count == 0)
         {
             FindObjectOfType<NPCInteraction>().isDialogueTrigger = false;
 
@@ -43,9 +43,8 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        string sentence = text.Dequeue();
+        string sentence = sentences.Dequeue();
         StopAllCoroutines();
-
         StartCoroutine(TypeSentence(sentence));
     }
 
@@ -64,5 +63,5 @@ public class DialogueManager : MonoBehaviour
         FindObjectOfType<NPCInteraction>().audioSource.Stop();
     }
 
-
+    
 }
