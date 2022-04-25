@@ -188,13 +188,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &198181849
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -268,7 +268,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &303299177
 GameObject:
@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 303299180}
   - component: {fileID: 303299179}
   - component: {fileID: 303299178}
+  - component: {fileID: 303299181}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -368,6 +369,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &303299181
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303299177}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &425021631
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +428,7 @@ RectTransform:
   m_Children:
   - {fileID: 1096453113}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -712,18 +739,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 50
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 5
+    m_MinSize: 4
     m_MaxSize: 50
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1452856684
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -776,9 +803,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ce8f8cc05942c41b628c0bc661ef1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1096453110}
-  nameText: {fileID: 198181848}
-  dialogueText: {fileID: 1452856683}
+  anim: {fileID: 1096453110}
+  NPCName: {fileID: 198181848}
+  dialogue: {fileID: 1452856683}
 --- !u!1 &2049947562
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,8 +816,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2049947566}
   - component: {fileID: 2049947565}
-  - component: {fileID: 2049947563}
   - component: {fileID: 2049947567}
+  - component: {fileID: 2049947568}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -798,32 +825,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2049947563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049947562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23b51d0ce7bfe80419ccec02d1adec20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueBoxSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  dialogueBox: {fileID: 1096453109}
-  audioSource: {fileID: 0}
-  dialogueSound: {fileID: 0}
-  dialogue:
-    name: test
-    sentences:
-    - 'Hi.
-
-'
-    - "What?\t"
-    - See ya!
-  isDialogueTrigger: 0
-  isInDistance: 1
 --- !u!212 &2049947565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -889,7 +890,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2049947567
 BoxCollider2D:
@@ -917,3 +918,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2049947568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049947562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b51d0ce7bfe80419ccec02d1adec20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueBoxSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  dialogueBox: {fileID: 1096453109}
+  audioSource: {fileID: 0}
+  dialogueSound: {fileID: 0}
+  dialogue:
+    name: Mako
+    sentences:
+    - Hi.
+  isDialogueTrigger: 0
+  isInDistance: 1
