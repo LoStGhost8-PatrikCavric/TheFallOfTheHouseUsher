@@ -31,7 +31,7 @@ public class NPCInteraction : MonoBehaviour
     {
         isInDistance = false;
 
-        FindObjectOfType<DialogueManager>().animator.SetBool("IsOpen", false);
+        FindObjectOfType<DialogueManager>().anim.SetBool("IsOpen", false);
         audioSource.Stop();
         isDialogueTrigger = false;
     }
