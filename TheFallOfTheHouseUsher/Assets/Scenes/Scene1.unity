@@ -94799,7 +94799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ce8f8cc05942c41b628c0bc661ef1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 1315196586}
   NPCName: {fileID: 581616719}
   dialogue: {fileID: 1442747729}
 --- !u!4 &1623721239
@@ -109295,8 +109295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23b51d0ce7bfe80419ccec02d1adec20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBoxSprite: {fileID: 0}
-  dialogueBox: {fileID: 0}
+  dialogueBoxSprite: {fileID: 21300000, guid: bb3b83b3ba2f97d4ea181dd9e511d06e, type: 3}
+  dialogueBox: {fileID: 1315196582}
   audioSource: {fileID: 0}
   dialogueSound: {fileID: 0}
   dialogue:
