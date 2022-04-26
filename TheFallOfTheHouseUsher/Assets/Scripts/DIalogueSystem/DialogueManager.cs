@@ -5,64 +5,55 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Animator animator;
-
-    public Queue<string> text;
-    public Text nameText;
-    public Text dialogueText;
+    public Animator anim;
+    private Queue<string> sentences;
+    public Text NPCName;
+    public Text dialogue;
     // Start is called before the first frame update
     void Start()
     {
-        text = new Queue<string>();
+        sentences = new Queue<string>();
     }
 
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
     public void StartDialogue(Dialogue dialogue)
     {
-        animator.SetBool("IsOpen", true);
-
-        nameText.text = dialogue.name;
-
-        text.Clear();
-
+        anim.SetBool("IsOpen", true);
+        NPCName.text = dialogue.name;
+        sentences.Clear();
         foreach (string sentence in dialogue.sentences)
         {
-            text.Enqueue(sentence);
+            sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
-
     }
 
     public void DisplayNextSentence()
     {
-        if (text.Count == 0)
+        if (sentences.Count == 0)
         {
             FindObjectOfType<NPCInteraction>().isDialogueTrigger = false;
-
-            animator.SetBool("IsOpen", false);
-
+            anim.SetBool("IsOpen", false);
             return;
         }
 
-        string sentence = text.Dequeue();
+        string sentence = sentences.Dequeue();
         StopAllCoroutines();
-
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence)); 
     }
 
     IEnumerator TypeSentence(string sentence)
     {
-        dialogueText.text = "";
-
-        FindObjectOfType<NPCInteraction>().audioSource.Play();
-
+        dialogue.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            dialogueText.text += letter;
+            dialogue.text += letter;
             yield return new WaitForSeconds(.1f);
         }
-
-        FindObjectOfType<NPCInteraction>().audioSource.Stop();
     }
-
 
 }
